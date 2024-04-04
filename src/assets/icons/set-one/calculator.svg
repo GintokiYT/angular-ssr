@@ -1,0 +1,13 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="3.75" y="1.75" width="16.5" height="20.5" rx="2.25" stroke="currentColor" stroke-width="1.5"/>
+<mask id="path-2-inside-1_15957_41096" fill="white">
+<rect x="6" y="5" width="12" height="4" rx="1"/>
+</mask>
+<rect x="6" y="5" width="12" height="4" rx="1" stroke="currentColor" stroke-width="3" mask="url(#path-2-inside-1_15957_41096)"/>
+<circle cx="7" cy="12" r="1" fill="currentColor"/>
+<circle cx="7" cy="17" r="1" fill="currentColor"/>
+<circle cx="12" cy="12" r="1" fill="currentColor"/>
+<circle cx="12" cy="17" r="1" fill="currentColor"/>
+<circle cx="17" cy="12" r="1" fill="currentColor"/>
+<circle cx="17" cy="17" r="1" fill="currentColor"/>
+</svg>

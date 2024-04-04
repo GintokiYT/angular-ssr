@@ -1,0 +1,30 @@
+// @import url('./variables.scss');
+// @import url('./georclass.scss');
+@import url('./components.scss');
+// @import url('./fonts.scss');
+
+:root {
+  --header-height: 0px;
+  --max-width: 1280px;
+  --dropdownX: 0px;
+  --dropdownY: 0px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,*::after,*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+
+.d-none {
+  display: none !important;
+}
+
+.d-block {
+  display: block !important;
+}

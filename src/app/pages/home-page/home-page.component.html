@@ -1,0 +1,113 @@
+<div id="promotion" class="w-full bg-[#FF6058] px-[24px] py-[12px]">
+  <p class="g-text--content-2-c g-c--primary-contrast text-center">Administra mejor tu empresa desde un <span class="g-text--content-c g-c--primary-contrast">S/4</span>, regístrate y prueba todas las aplicaciones.</p>
+</div>
+<header id="header" class="w-full bg-[--p-background-primary] sticky z-[1000] top-0 border-[--p-gray-scale-200] border-b border-solid">
+  <nav class="w-full max-w-[--max-width] m-auto relative">
+    <div class="w-full max-w-[--max-width] flex justify-between items-center gap-[32px] px-[16px] py-[8px] tablet:px-[24px] tablet:py-[12px]">
+      <div class="flex items-center gap-[4.84px]">
+        <img class="w-[32px] h-[32px]" src="./assets/icons/geor.svg" alt="Logo geor" />
+        <svg class="w-[65.36px] h-[22.48px]">
+          <use href="./assets/icons/text.svg#geor"></use>
+        </svg>
+      </div>
+      <div class="desktop:hidden flex items-center gap-[8px] relative">
+        @if(statusAuthenticated()) {
+          <div id="avatar-mobile" class="avatar g-tx--content-1-a" (click)="showInfo($event)">WD</div>
+        }
+        <icon
+          class="cursor-pointer"
+          [ngClass]="statusMenu()? 'd-block': 'd-none'"
+          name="close-center"
+          size="lg"
+          (click)="toggleMenu()"
+        ></icon>
+        <icon
+          class="cursor-pointer"
+          [ngClass]="statusMenu()? 'd-none': 'd-block'"
+          name="burger"
+          size="lg"
+          (click)="toggleMenu()"
+        ></icon>
+      </div>
+      <nav class="hidden desktop:flex flex-1 justify-between">
+        <ul class="flex">
+          <li>
+            <g-button type="text-black" label="Plataforma" size="md"></g-button>
+          </li>
+          <li>
+            <g-button type="text-black" label="Precios" size="md"></g-button>
+          </li>
+        </ul>
+        @if(statusAuthenticated()) {
+          <div class="flex items-center gap-[12px]">
+            <g-button type="tertiary-outline" label="Mis empresas" size="md" iconRight="arrow-p"></g-button>
+            <div id="avatar-desktop" class="avatar g-tx--content-1-a" (click)="showInfo($event)">WD</div>
+          </div>
+        } @else {
+          <div class="flex items-center gap-[4px]">
+            <g-button type="text-black" label="Iniciar sesión" size="md" iconRight="arrow-p" (click)="logIn()"></g-button>
+            <g-button type="primary" label="Prueba Geor gratis" size="md"></g-button>
+          </div>
+        }
+      </nav>
+    </div>
+    <div
+      class="menu-mobile"
+      [ngClass]="{
+        'active': statusMenu(),
+        'invisible': !statusMenu()
+      }"
+    >
+      <div class="w-full flex gap-8px px-[16px] tablet:px-[24px] mt-[16px]">
+        @if(statusAuthenticated()) {
+          <g-button class="flex-1" [full]="true" type="tertiary-outline" label="Mis empresas" size="md" iconRight="arrow-p"></g-button>
+        } @else {
+          <g-button class="flex-1" [full]="true" type="text-black" label="Iniciar sesión" size="md" iconRight="arrow-p" (click)="logIn()"></g-button>
+          <g-button class="flex-1" [full]="true" type="primary" label="Prueba Geor gratis" size="md"></g-button>
+        }
+      </div>
+      <ul class="flex flex-col px-[16px] tablet:px-[24px] mt-[16px]">
+        <li class="border-y border-[--p-gray-scale-200] border-solid">
+          <g-button [full]="true" type="text-black" label="Plataforma" size="md"></g-button>
+        </li>
+        <li class="border-y border-[--p-gray-scale-200] border-solid">
+          <g-button [full]="true" type="text-black" label="Precios" size="md"></g-button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main class="w-full">
+  <div class="w-full max-w-[--max-width] h-[40px] m-auto px-[16px] tablet:px-[24px] mt-[8px]">
+    <div class="w-full h-full flex items-center gap-[8px] rounded-[2px] bg-[--p-gray-scale-100] border-[--p-gray-scale-200] border-solid border-[2px] py-[11px] px-[8px]">
+      <icon class="text-[--p-gray-scale]" name="search" size="md"></icon>
+      <input class="w-full border-none bg-transparent g-tx--content-1-a" type="text" placeholder="Buscar"/>
+    </div>
+  </div>
+</main>
+
+<div
+  class="dropdown-menu"
+  [ngClass]="{ 'd-none': !statusDropdown() }"
+  (click)="closeDropdownMenu($event)"
+>
+  <div id="dropdown-menu-item" class="w-[246px] rounded-[5px] absolute overflow-hidden g-shadow--a">
+    <div class="flex flex-col">
+      <div class="px-[16px] py-[11px] bg-[--p-basic-1000]">
+        <div class="flex gap-[8px]">
+          <div class="avatar g-tx--content-1-a">WD</div>
+          <div class="flex flex-col">
+            <p class="g-tx--content-1-c g-c--secondary-contrast">Wilfredo Díaz</p>
+            <p class="g-tx--content-2-a g-c--secondary-outline-border">{{ 'wilfredo.diaz@geor.app' }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <button class="w-full h-[34px] g-tx--content-1-a bg-[--p-background-primary]" type="button">Administrar mi cuenta</button>
+        <button class="w-full h-[34px] g-tx--content-1-a bg-[--p-background-primary]" type="button" (click)="logOut()">Cerrar sesión</button>
+        <div class="w-full h-[4px] bg-[--p-background-primary]"></div>
+      </div>
+    </div>
+  </div>
+</div>
